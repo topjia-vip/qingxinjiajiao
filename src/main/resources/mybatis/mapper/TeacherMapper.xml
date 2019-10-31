@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.it.qingxin.mapper.TeacherMapper">
+    <select id="getTeachers" resultType="com.it.qingxin.bean.Teacher">
+        select teach_name
+        from teacher
+        where
+        teach_sub = #{sub} and grade = #{grade}
+    </select>
+    <select id="getTeacherInfoByName" resultType="com.it.qingxin.bean.Teacher">
+        select *
+        from teacher
+        where
+        teach_name = #{name}
+    </select>
+    <select id="getTeachersBySub" resultType="com.it.qingxin.bean.Teacher">
+        select * from teacher where teach_sub = #{sub}
+    </select>
+</mapper>

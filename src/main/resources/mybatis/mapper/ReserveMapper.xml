@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.it.qingxin.mapper.ReserveMapper">
+    <insert id="insertReserve">
+        insert
+        into reserve
+        (parent_phone, teach_phone, teach_name, subject, date)
+        values
+        (#{parentPhone},#{teachPhone},#{teachName},#{subject},#{date})
+    </insert>
+
+    <select id="hasReserve" resultType="com.it.qingxin.bean.Reserve">
+        select *
+        from reserve
+        where
+        parent_phone = #{parentPhone}
+        and teach_phone = #{teachPhone}
+    </select>
+
+    <select id="getMyReserves" resultType="com.it.qingxin.bean.Reserve">
+        select
+        subject,teach_name
+        from reserve
+        where parent_phone = #{phone}
+    </select>
+</mapper>
